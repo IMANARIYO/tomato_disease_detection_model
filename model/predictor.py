@@ -2,7 +2,6 @@ import tensorflow as tf
 from keras.models import load_model
 
 # Load the model once
-model = load_model('model/tomato_deasese_model.keras')
 
 # Class names — from your model training
 class_names = [
@@ -19,6 +18,7 @@ class_names = [
 ]
 
 def predict_disease(img_path):
+    model = load_model('model/tomato_deasese_model.keras')
     # Load and preprocess image
     img = tf.io.read_file(img_path)
     img = tf.image.decode_image(img, channels=3)
